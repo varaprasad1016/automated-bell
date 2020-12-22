@@ -1,0 +1,90 @@
+ <html>
+<head>
+	<title>AUTOMATIC BELL SYSTEM</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1" /> 
+	<div>
+		<img src="/static/images/banner.jpg" alt="PB Siddhartha" width="100%" margin="0" />
+	</div>
+ <script>
+		function fom(){
+			var username = document.form1.username.value;
+			var password = document.form1.password.value;
+			if(username==""){
+				alert("please enter your name");
+				return false;
+			}
+
+			if(password==""){
+				alert("please enter your password");
+				return false;
+			}
+			return true;
+		}
+	</script>
+	<style>
+		body	{
+			background-color: #F3F4F6;
+			background-image: url("/static/images/bg.jpg");
+			background-repeat: no-repeat;
+			background-size: cover;
+		}
+		#loginbox{
+			width:350px;
+			height:350px;
+			box-sizing: border-box;
+			border:10px solid grey;
+			border-radius: 30px;
+			background-color: white;
+			margin-top: 50px;
+
+		}
+   </style>
+</head>
+	
+<body>
+	<center>
+		<center><b><h1 style="font-size: 50px;">AUTOMATED BELL SYSTEM</h1></b></center>
+		<div id="loginbox">
+			<h1 style = "font-size:25px;font-family: garamond;font-style:unset;color:black;">LOGIN PAGE</h1>
+		    <br>
+		    <form method="post" action={{url_for("loginvalid")}} name="form1">
+		    	<b><p style="font-size: 20px;">USERNAME:</b>
+		        <input type = "text" name = "username" placeholder = "Username" autocomplete="off"></p>
+		        <b><p style= "font-size: 20px;">PASSWORD:</b>
+		        <input type = "password" name= "password" placeholder = "password" autocomplete="off"></p>
+		        <br>
+		        <br>
+		        <button type="submit" style="background-color: #399B68; 
+			border: none;
+			color: white;
+			padding: 15px 32px;
+			text-align: center;
+			text-decoration: none;
+			display: inline-block;
+			font-size: 16px;
+			left:200px;
+			margin-right: 20px;
+			left:20px;
+			top:10%;
+			border-radius: 10px;">Signin</button>
+		        <button type="submit" style="background-color: #399B68; 
+			border: none;
+			color: white;
+			padding: 15px 32px;
+			text-align: center;
+			text-decoration: none;
+			display: inline-block;
+			font-size: 16px;
+			left:200px;
+			margin-right: 20px;
+			left:20px;
+			top:10%;
+			border-radius: 10px;">Reset</button>
+		        <br>
+		        <br>
+		    </form>
+		</div>
+	</center>
+	<marquee style="font-size: 25px;">DEVELOPED BY B.DEVIKA, M.VIJAYA LAKSHMI, K.MOUNIKA, S.B.S VARA PRASAD, N.P.ESWAR, STUDENTS OF BSc. MSDS UNDER THE GUIDANCE OF R.VIJAYA MA'AM IN ASSOCIATION WITH CODEGNAN IT SOLUTIONS &#169;&#174;&#8482;.</marquee>
+</body>
+</html>

@@ -1,0 +1,116 @@
+<html>
+<head>
+	<title> PB SIDDHARTHA COLLEGE OF ARTS AND SCIENCES </title>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<style>
+		.TDS{
+		    width:420px;
+			height:250px;
+			box-sizing: content-box;
+			border:10px solid grey;
+			border-radius: 30px;
+			background-color: white;
+			margin-left: 450px;
+			margin-top: -90px;
+			opacity: 100px;
+}
+
+		#clock {
+			font-size: 50px;
+			color: maroon;
+			width: 10%;
+			margin-top: 50px;
+			border: 10px;
+			border-radius: 40px;
+			margin-left:90px;}
+
+		#side {
+			text-align: center;
+		}
+
+		.button {
+			border: none;
+			padding: 15px 32px;
+			text-align: center;
+			text-decoration: none;
+			display: inline-block;
+			font-size: 18px;
+			margin: 4px 2px;
+			cursor: pointer;
+			border-radius: 10px;
+			}
+
+		.button2 {
+			padding: 14px 30px;
+			color: #0B615E;
+		}
+
+		.button3 {
+			border-radius: 10px;
+			padding: 14px 14px;
+			color: red;
+		}
+
+		.button4 {
+			color: white;
+			padding: 14px 35px;
+			color: blue;
+		}
+		body{
+			 background-image:url("/static/images/bg.jpg");
+			 background-repeat: no-repeat;
+			 background-size: cover; 
+		}
+	</style>
+	<script>
+		setInterval(showTime, 1000);
+		function showTime() {
+			let time = new Date();
+			let hour = time.getHours();
+			let min = time.getMinutes();
+			let sec = time.getSeconds();
+			let currentTime = hour + ":" + min + ":" + sec;
+			document.getElementById("clock").innerHTML = currentTime;
+		}
+		showTime(); 
+	</script>
+	<script>
+
+		$(document).ready(function () {
+			$('form').on('submit', function (event) {
+				$.ajax({
+					data: {
+						REGULAR: $('#buttons').val(),
+						emergency: $('#buttons').val()
+					},
+					type: 'POST',
+					url: '/classify'
+				})
+				event.preventDefault();
+			});
+		});
+	</script>
+	<img src="/static/images/newbanner.jpg" alt="PB Siddhartha" width="100%" margin="0" />
+</head>
+
+<body>
+	<center><b><h1 style="font-size: 50px;">AUTOMATED BELL SYSTEM</h1></b></center>
+	<div id="clock">Time displays here</div><br /><br />
+	<div class="TDS">
+		<form action="{{url_for('classify')}}" method="post">
+			<center>
+				<br>
+				<button class="button button2" type="submit" style="margin-right: 20px;" name='regular' value="regular">REGULAR</button></br></br>
+				<button class="button button3" type="submit" name="regular" value="emergency"
+					style="margin-right: 20px;">EMERGENCY</button></br></br>
+				<button class="button button4" type="submit" name="regular" value="create"
+					style="margin-right: 20px;">CREATE</button></br></br>
+			</center>
+		</form>
+	</div>
+	<br><br><br><marquee style="font-size: 25px;">DEVELOPED BY B.DEVIKA, M.VIJAYA LAKSHMI, K.MOUNIKA, S.B.S VARA PRASAD, N.P.ESWAR, STUDENTS OF BSc. MSDS UNDER THE GUIDANCE OF R.VIJAYA MA'AM IN ASSOCIATION WITH CODEGNAN IT SOLUTIONS &#169;&#174;&#8482;.</marquee>
+</body>
+
+
+</html>

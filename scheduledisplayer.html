@@ -1,0 +1,100 @@
+<html>
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1" /> 
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<style>
+table, th, td {
+  border: 1px solid black;
+}
+.button {
+        background-color: #4CAF50; 
+        border: none;
+        color: white;
+        padding: 15px 32px;
+        text-align: bottom;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 16px;
+        margin: 6px 6px;
+        cursor: pointer;
+        border-radius:20px;
+        margin-top:550px;
+        position: absolute;
+        margin-left: -200px;
+        }
+              .button2 {background-color: #008CBA;
+              background-color: #4CAF50; 
+        border: none;
+        color: white;
+        padding: 15px 32px;
+        text-align: bottom;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 16px;
+        margin: 6px 6px;
+        cursor: pointer;
+        border-radius:20px;
+        margin-top:550px;
+        position: absolute;
+        margin-left: 100px;
+        margin-right: 100px;}
+
+       .button3 {background-color: #008CBA;
+              background-color: #4CAF50; 
+        border: none;
+        color: white;
+        padding: 15px 32px;
+        text-align: bottom;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 16px;
+        margin: 6px 6px;
+        cursor: pointer;
+        border-radius:20px;
+        margin-top:550px;
+        position: absolute;
+        margin-left: 100px;
+        margin-right: 100px;}
+               
+</style>
+<div class="SNo"></div>
+</head>
+<body>  
+<center><h2>Alarm Schedule Displayer</h2></center>
+<form id="alarm" method="POST">
+<center><table style="width:20%"></center>
+    <tr>
+        <th>S.No</th>
+        <th>TIME</th> 
+        <th>BELL TYPE</th>
+        <th>COUNT</th>
+      </tr>
+        {% for item in items %}
+            <tr>
+                <td>{{item.SNO}}</td>
+                <td>{{item.TIME}}</td>
+                <td>{{item.BELLS}}</td>
+                <td>{{item.COUNT}}</td>
+            </tr>
+        {% endfor %}        
+    <button class="button" name="submit" value="submit">Scheduler</button>
+  <button class="button2" name="clear" value="clear">Delete</button>
+  <button class="button3" name="display" value="display">Alarm List</button>
+</table>
+</form>
+<script >
+formdata = $('#alarm').serialize();
+$('#alarm').submit(function(){
+  $.ajax({
+          type: 'POST',
+          url: '/create',
+            data : formdata,
+            datatype: 'json',
+            contentType: "application/json",
+            success: function(dat){console.log(dat);}
+        });
+})
+
+</script>
+</body>
+</html>
